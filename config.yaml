@@ -1,0 +1,36 @@
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  models: models
+  reports: reports
+
+data:
+  tables:
+    application_train: application_train.csv
+    application_test: application_test.csv      # no labels; not used for evaluation
+    bureau: bureau.csv
+    bureau_balance: bureau_balance.csv
+    previous_application: previous_application.csv
+    pos_cash: POS_CASH_balance.csv
+    installments: installments_payments.csv
+    credit_card: credit_card_balance.csv
+  target_column: TARGET
+  id_column: SK_ID_CURR
+
+split:
+  strategy: stratified      # no real dates, so no time-based split
+  test_size: 0.2
+  val_size: 0.2
+  random_state: 42
+
+features:
+  drop_columns: []          # your decision on sensitive features goes here later
+
+metrics:
+  primary: roc_auc
+  secondary: [pr_auc, recall_at_precision]
+  target_precision: 0.20    # placeholder; derive it from business costs later
+
+mlflow:
+  tracking_uri: mlruns
+  experiment_name: home-credit-default

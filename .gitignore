@@ -1,0 +1,28 @@
+# Python clutter
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Data and model artifacts
+data/raw/*
+data/processed/*
+models/*
+reports/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
+!reports/.gitkeep
+
+# Experiment tracking
+mlruns/
+mlflow.db
+
+# Secrets and OS files
+.env
+.DS_Store
+
+home-credit-default-risk/
